@@ -60,12 +60,12 @@ class SignupControllerTest {
                 3,
                 List.of("Spring", "Kotlin", "Java")
         );
-        var jsonString = objectMapper.writeValueAsString(request);
+        var body = objectMapper.writeValueAsString(request);
 
         // expect
         mockMvc.perform(MockMvcRequestBuilders.post("/signup")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(jsonString)
+                        .content(body)
                 )
                 .andExpect(MockMvcResultMatchers.status().isCreated())
                 .andDo(print());
